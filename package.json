@@ -4,8 +4,11 @@
   "description": "Rest api for communication with WhatsApp",
   "main": "./dist/main.js",
   "type": "commonjs",
-  "scripts": {
-    "build": "tsc --noEmit && tsup",
+"scripts": {
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "postinstall": "prisma generate && npm run build"
+   "build": "tsc --noEmit && tsup",
     "start": "tsnd -r tsconfig-paths/register --files --transpile-only ./src/main.ts",
     "start:prod": "node dist/main",
     "dev:server": "tsnd -r tsconfig-paths/register --files --transpile-only --respawn --ignore-watch node_modules ./src/main.ts",
